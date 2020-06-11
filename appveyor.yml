@@ -1,0 +1,15 @@
+version: 1.0.{build}
+
+platform:
+  - x64
+
+build_script:
+  - cmd: mkdir build
+  - cmd: cd build
+  - cmd: cmake .. -DCMAKE_BUILD_TYPE=Release  -G "Visual Studio 16"
+  - cmd: cmake --build . --config Release --parallel 2
+  - cmd: dir /s
+
+test_script:
+  - cmd: cd Release
+  - cmd: hello
